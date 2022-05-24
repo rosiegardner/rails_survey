@@ -6,7 +6,7 @@ class SurveysController < ApplicationController
   end
 
   def new
-    @survey = Survery.all
+    @survey = Survey.all
     render :new
   end
 
