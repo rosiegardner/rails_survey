@@ -1,31 +1,52 @@
 class SurveysController < ApplicationController
 
   def index
-    # Code for listing all albums goes here.
+    @surveys = Survey.all
+    render :index
   end
 
   def new
-    # Code for new album form goes here.
+    @survey = Survery.all
+    render :new
   end
 
   def create
-    # Code for creating a new album goes here.
+    @survey = Survey.new(survey_params)
+    if @survey.save
+      redirect_to surverys_path
+    else
+      render :new
+    end
   end
 
   def edit
-    # Code for edit album form goes here.
+    @survey = Survey.find(params[:id])
+    render :edit
   end
 
   def show
-    # Code for showing a single album goes here.
+    @survey = Survey.find(params[:id])
+    render :show
   end
 
   def update
-    # Code for updating an album goes here.
+    @survey = Survey.find(params[:id])
+    if @survey.update(survey_params)
+      redirect_to surverys_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    # Code for deleting an album goes here.
+    @survey = Survey.find(params[:id])
+    @survey.destroy
+    redirect_to surveys_path
   end
+
+  private
+    def survey_params
+      params.require(:survey).permit(:topic)
+    end
 
 end
