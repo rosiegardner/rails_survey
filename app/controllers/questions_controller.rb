@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @survey = Album.find(params[:survey_id])
+    @survey = Survey.find(params[:survey_id])
     @question = Question.find(params[:id])
     render :edit
   end

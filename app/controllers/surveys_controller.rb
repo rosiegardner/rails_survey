@@ -6,14 +6,14 @@ class SurveysController < ApplicationController
   end
 
   def new
-    @survey = Survey.all
+    @survey = Survey.new
     render :new
   end
 
   def create
     @survey = Survey.new(survey_params)
     if @survey.save
-      redirect_to surverys_path
+      redirect_to surveys_path
     else
       render :new
     end
@@ -32,7 +32,7 @@ class SurveysController < ApplicationController
   def update
     @survey = Survey.find(params[:id])
     if @survey.update(survey_params)
-      redirect_to surverys_path
+      redirect_to surveys_path
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class SurveysController < ApplicationController
 
   private
     def survey_params
-      params.require(:survey).permit(:topic)
+      params.require(:survey).permit(:topic, :category)
     end
 
 end
