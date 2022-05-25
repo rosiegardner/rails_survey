@@ -1,12 +1,15 @@
 <h1>Edit survey</h1>
 
-<%= form_for @survey do |f| %>
-  <%= f.label :topic %>
-  <%= f.text_field :topic %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.submit  %>
-<% end %>
+<%= render "layouts/survey_form" %>
+
+
+<%# <%= form_for @survey do |f| %> 
+  <%# <%= f.label :topic %> 
+  <%# <%= f.text_field :topic %> 
+  <%# <%= f.label :category %> 
+  <%# <%= f.text_field :category %> 
+  <%# <%= f.submit  %> 
+<%# <% end %> 
 
 
   <%# <%= f.label :genre %>
